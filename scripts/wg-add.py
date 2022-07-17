@@ -6,7 +6,7 @@ from typing import Optional
 
 config_path = "/usr/local/etc/wg-scripts/"
 sys.path.append(config_path)
-from wg-add-config import *
+from wg_add_config import *
 
 
 def make_configs(v_ip: str, user: str) -> (str, str):
