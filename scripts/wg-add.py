@@ -1,9 +1,13 @@
 import re
+import sys
 import ipaddress
 import subprocess
 from typing import Optional
 
-config_path = "/usr/local/etc/wg-scripts/wg-add-config.py"
+config_path = "/usr/local/etc/wg-scripts/"
+sys.path.append(config_path)
+from wg-add-config import *
+
 
 def make_configs(v_ip: str, user: str) -> (str, str):
     print("Starting key generation...")
