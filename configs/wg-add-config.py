@@ -1,6 +1,6 @@
 CONFIG_PATH = "/etc/wireguard/wg0.conf"
-CLIENT_PATH = "/home/old/wireguard/clients/"
-SERVER_PUBLIC_KEY = "UUJ/uhzzf5QcSRjA5Qz/CpCFeXjUFLyx6g3U9oA3/1w="
+CLIENT_PATH = "~/wireguard/clients/"
+SERVER_PUBLIC_KEY = "YOUR_SERVER_PUBLIC_KEY"
 V_NETWORK = "10.0.0.0/24"
 
 template_user_config = """[Interface]
@@ -9,9 +9,9 @@ Address = {v_addr}
 DNS = 8.8.8.8
 
 [Peer]
-PublicKey = UUJ/uhzzf5QcSRjA5Qz/CpCFeXjUFLyx6g3U9oA3/1w=
+PublicKey = YOUR_SERVER_PUBLIC_KEY
 AllowedIPs = 0.0.0.0/0
-Endpoint = 185.18.54.215:51820
+Endpoint = SERVER_IP_ADDRESS:SERVER_IP_PORT
 """
 
 template_server_config = """
