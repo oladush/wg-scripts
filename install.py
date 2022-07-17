@@ -16,4 +16,6 @@ for command in commands:
         res = subprocess.check_output(command, shell=True)
     except subprocess.CalledProcessError as ex:
         res = ex.output.decode()
-    print(res)
+
+    if res:
+        print(str(res))
