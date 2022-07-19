@@ -6,7 +6,6 @@ import json
 import hashlib
 import colorama
 import subprocess
-from wh_show_conf import *
 
 config_path = "/usr/local/etc/wg-scripts/"
 sys.path.append(config_path)
