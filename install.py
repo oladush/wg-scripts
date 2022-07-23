@@ -8,6 +8,7 @@ commands = [
     "pip install -r requirements.txt",                                          # python dependencies
 
     "mkdir /usr/local/etc/wg-scripts",
+    "mkdir /usr/local/wireguard",
     "mkdir /usr/local/wireguard/clients",
 
     "cp configs/wg_add_config.py /usr/local/etc/wg-scripts/wg_add_config.py",   # for wg-add
