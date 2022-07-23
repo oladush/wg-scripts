@@ -6,7 +6,9 @@ import subprocess
 
 commands = [
     "pip install -r requirements.txt",                                          # python dependencies
+
     "mkdir /usr/local/etc/wg-scripts",
+    "mkdir /usr/local/wireguard/clients",
 
     "cp configs/wg_add_config.py /usr/local/etc/wg-scripts/wg_add_config.py",   # for wg-add
     "cp scripts/wg-add.py /usr/local/bin/wg-add",

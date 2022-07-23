@@ -1,5 +1,5 @@
 CONFIG_PATH = "/etc/wireguard/wg0.conf"
-CLIENT_PATH = "~/wireguard/clients/"
+CLIENT_PATH = "/usr/local/wireguard/clients/"
 SERVER_PUBLIC_KEY = "YOUR_SERVER_PUBLIC_KEY"
 V_NETWORK = "10.0.0.0/24"
 
