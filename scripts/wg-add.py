@@ -11,7 +11,7 @@ sys.path.append(config_path)
 from wg_add_config import *
 
 
-def make_configs(v_ip: str, user: str) -> (str, str):
+def make_configs(v_ip: str, user: str, description="") -> (str, str):
     print("Starting key generation...")
 
     pr_key = subprocess.check_output("wg genkey", shell=True).decode()[:-1]
@@ -21,7 +21,7 @@ def make_configs(v_ip: str, user: str) -> (str, str):
     print("Public key: %s" % pu_key)
 
     client_config = template_user_config.format(pr_key=pr_key, v_addr=v_ip)
-    server_config = template_server_config.format(pu_key=pu_key, v_addr=v_ip, description=user)
+    server_config = template_server_config.format(pu_key=pu_key, v_addr=v_ip, name=user, description=description)
 
     return client_config, server_config
 
@@ -65,13 +65,14 @@ if __name__ == '__main__':
         exit(1)
 
     username = input("Type name of new user\n# ")
+    description = input("Optional. Set description\n# ")
 
     if not username:
         print("Set name of user")
         exit(1)
 
     print("Making configs..")
-    client, server = make_configs(ip, username)
+    client, server = make_configs(ip, username, description)
 
     write_server_config(server)
     write_client_config(client, username)

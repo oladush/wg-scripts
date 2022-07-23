@@ -18,5 +18,6 @@ template_server_config = """
 [Peer]
 PublicKey = {pu_key}
 AllowedIPs = {v_addr}/32
-#{description}
+#Name = {name}
+#Description = {description}
 """
