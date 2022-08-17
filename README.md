@@ -1,2 +1,10 @@
 # wg-scripts
-my simple scripts for wireguard. for example wg-add-peer, wg show with descriptions and aliases, etc...
+Simple scripts for wireguard.
+
+Installation
+```
+git clone https://github.com/oladush/wg-scripts.git
+cd wg-scripts
+python3 install.py
+```
+Then make change in config files. 
