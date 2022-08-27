@@ -61,7 +61,7 @@ def main():
     print('New config files:\n"""')
     print(new_config := delete_items_from_text(matched, config), end='"""\n')
 
-    while (answer := input('Please confirm the changes y/n: ')) not in ('y', 'n'):
+    while (answer := 'y' if args.y else input('Please confirm the changes y/n: ')) not in ('y', 'n'):
         print('Incorrect type "y" or "n" (Ctrl+ C to exit)')
 
     if answer == 'y':
