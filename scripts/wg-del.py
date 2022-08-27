@@ -25,6 +25,7 @@ def main():
         description="delete peer from wireguard vpn"
     )
     parser.add_argument("-k", "--key", dest="key", help="key for search", type=str)
+    parser.add_argument('-y', dest="y", action=argparse.BooleanOptionalAction)
     args = parser.parse_args()
 
     with open(CONFIG_PATH, "r") as rf:
@@ -51,7 +52,7 @@ def main():
 
         print(f'Matched peers: {len(matched)}/{len(peers)}')
 
-        while (answer := input('Do you really want to delete this items y/n: (n to research)')) not in ('y', 'n'):
+        while (answer := 'y' if args.y else input('Do you really want to delete this items y/n: (n to research)')) not in ('y', 'n'):
             print('Incorrect type "y" or "n" (Ctrl+ C to exit)')
 
         if answer == 'y':
