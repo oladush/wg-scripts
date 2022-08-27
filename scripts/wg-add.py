@@ -2,6 +2,7 @@
 
 import re
 import sys
+import argparse
 import ipaddress
 import subprocess
 from typing import Optional
@@ -55,6 +56,13 @@ def write_client_config(conf:str, user:str):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description="add peer to wireguard vpn"
+    )
+    parser.add_argument("-u", "--username",    dest="user", help="set username of peer",    type=str)
+    parser.add_argument("-d", "--description", dest="desc", help="set description of peer", type=str)
+    args = parser.parse_args()
+
     print("Searching available ip..")
     ip = search_available_ip()
 
@@ -64,8 +72,8 @@ if __name__ == '__main__':
         print("Available is not founded")
         exit(1)
 
-    username = input("Type name of new user\n# ")
-    description = input("Optional. Set description\n# ")
+    username = args.user if args.user else input("Type name of new user\n# ")
+    description = args.desc if args.desc else input("Optional. Set description\n# ")
 
     if not username:
         print("Set name of user")
