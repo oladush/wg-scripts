@@ -2,6 +2,7 @@
 
 import re
 import sys
+import argparse
 import colorama
 
 config_path = "/usr/local/etc/wg-scripts/"
@@ -20,6 +21,12 @@ def delete_items_from_text(items: list, text: str):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="delete peer from wireguard vpn"
+    )
+    parser.add_argument("-k", "--key", dest="key", help="key for search", type=str)
+    args = parser.parse_args()
+
     with open(CONFIG_PATH, "r") as rf:
         config = rf.read()
 
@@ -31,7 +38,7 @@ def main():
     while 1:
         matched = []
 
-        reg = input("Type key for search\n~# ")
+        reg = args.key if args.key else input("Type key for search\n~# ")
 
         for peer in peers:
             if re.search(reg, peer):
