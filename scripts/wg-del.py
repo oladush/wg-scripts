@@ -39,6 +39,7 @@ def main():
         matched = []
 
         reg = args.key if args.key else input("Type key for search\n~# ")
+        args.key = None
 
         for peer in peers:
             if re.search(reg, peer):
