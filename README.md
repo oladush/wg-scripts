@@ -3,9 +3,11 @@ Simple scripts for wireguard.
 
 requirements:
 python >= 3.9
+
 colorama
 
 wireguard
+
 qrencode
 
 
